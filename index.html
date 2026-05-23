@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walpurgis Studio — Sites com presença, atmosfera e intenção</title>
+  <meta name="description" content="Walpurgis Studio cria sites, landing pages e experiências digitais para marcas, profissionais e projetos que querem sair do comum." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#09090B',
+            graphite: '#18181B',
+            ritual: '#F4F1EA',
+            arcane: '#7C3AED',
+            ember: '#F59E0B',
+            emberDark: '#92400E',
+            emberRed: '#B91C1C',
+            smoke: '#A1A1AA'
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            inter: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 0 40px rgba(124, 58, 237, .18)',
+            ember: '0 0 45px rgba(245, 158, 11, .18)'
+          },
+          backgroundImage: {
+            aura: 'radial-gradient(circle at center, rgba(124, 58, 237, 0.22), transparent 55%)',
+            fireaura: 'radial-gradient(circle at center, rgba(245, 158, 11, 0.18), transparent 55%)',
+            brandgrad: 'linear-gradient(135deg, #7C3AED 0%, #B91C1C 45%, #F59E0B 100%)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --obsidian: #09090B;
+      --graphite: #18181B;
+      --ritual: #F4F1EA;
+      --arcane: #7C3AED;
+      --ember: #F59E0B;
+      --smoke: #A1A1AA;
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(124, 58, 237, .75) #09090B;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at 18% 10%, rgba(124, 58, 237, .16), transparent 34%),
+        radial-gradient(circle at 86% 20%, rgba(245, 158, 11, .11), transparent 32%),
+        radial-gradient(circle at 50% 90%, rgba(185, 28, 28, .10), transparent 38%),
+        #09090B;
+      color: #F4F1EA;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(244, 241, 234, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 241, 234, .035) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(9, 9, 11, .10), rgba(9, 9, 11, .80)),
+        radial-gradient(circle at center, transparent 30%, rgba(0,0,0,.35));
+      z-index: -1;
+    }
+
+    .font-display {
+      font-family: 'Cinzel', serif;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      opacity: .055;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='.75'/%3E%3C/svg%3E");
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(42px);
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .brand-card {
+      background: linear-gradient(180deg, rgba(24,24,27,.82), rgba(9,9,11,.84));
+      border: 1px solid rgba(244, 241, 234, .10);
+      box-shadow: 0 0 0 1px rgba(124,58,237,.05), 0 18px 80px rgba(0,0,0,.32);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand-card:hover {
+      border-color: rgba(245, 158, 11, .34);
+      transform: translateY(-4px);
+      box-shadow: 0 0 0 1px rgba(245,158,11,.08), 0 20px 90px rgba(124,58,237,.14);
+    }
+
+    .thin-label {
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      color: rgba(244, 241, 234, .62);
+    }
+
+    .mystic-line {
+      position: relative;
+    }
+
+    .mystic-line::before,
+    .mystic-line::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 70px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124,58,237,.75), transparent);
+    }
+
+    .mystic-line::before {
+      right: calc(100% + 16px);
+    }
+
+    .mystic-line::after {
+      left: calc(100% + 16px);
+    }
+
+    .spark {
+      width: 9px;
+      height: 9px;
+      background: #F4F1EA;
+      box-shadow: 0 0 22px rgba(124,58,237,.95), 0 0 38px rgba(245,158,11,.35);
+      transform: rotate(45deg);
+    }
+
+    .logo-seal {
+      position: relative;
+      width: 112px;
+      height: 112px;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 241, 234, .26);
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 30px rgba(124,58,237,.12), 0 0 38px rgba(124,58,237,.16);
+    }
+
+    .logo-seal::before,
+    .logo-seal::after {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(245,158,11,.26);
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
+
+    .logo-seal::after {
+      inset: 22px;
+      border-color: rgba(124,58,237,.35);
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    .w-mark {
+      font-family: 'Cinzel', serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: #F4F1EA;
+      text-shadow: 0 0 20px rgba(124,58,237,.45);
+      z-index: 1;
+    }
+
+    .flame-dot {
+      position: absolute;
+      top: 30px;
+      width: 9px;
+      height: 16px;
+      background: linear-gradient(180deg, #F59E0B, #7C3AED);
+      border-radius: 999px 999px 999px 0;
+      transform: rotate(45deg);
+      box-shadow: 0 0 20px rgba(245,158,11,.75);
+      z-index: 2;
+    }
+
+    .project-image {
+      background:
+        radial-gradient(circle at 78% 22%, rgba(124,58,237,.30), transparent 28%),
+        radial-gradient(circle at 20% 80%, rgba(245,158,11,.20), transparent 30%),
+        linear-gradient(135deg, rgba(244,241,234,.08), rgba(244,241,234,.02));
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+
+    .floating-delay {
+      animation: floating 7s ease-in-out infinite;
+      animation-delay: -2s;
+    }
+
+    @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .marquee-track {
+      animation: marquee 28s linear infinite;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .mystic-line::before,
+      .mystic-line::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="noise"></div>
+
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-obsidian/72 backdrop-blur-2xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <a href="#home" class="group flex items-center gap-3">
+        <span class="relative grid h-11 w-11 place-items-center rounded-full border border-ritual/20 bg-graphite/70 shadow-glow">
+          <span class="font-display text-2xl font-semibold text-ritual">W</span>
+          <span class="absolute top-2 h-2 w-2 rotate-45 rounded-sm bg-ember shadow-ember"></span>
+        </span>
+        <span>
+          <span class="block font-display text-lg font-semibold tracking-[.22em] text-ritual">WALPURGIS</span>
+          <span class="block text-[10px] uppercase tracking-[.38em] text-arcane">Studio</span>
+        </span>
+      </a>
+
+      <div class="hidden items-center gap-8 text-sm text-zinc-300 md:flex">
+        <a href="#projetos" class="hover:text-ember transition">Projetos</a>
+        <a href="#processo" class="hover:text-ember transition">Processo</a>
+        <a href="#servicos" class="hover:text-ember transition">Serviços</a>
+        <a href="#contato" class="hover:text-ember transition">Contato</a>
+      </div>
+
+      <a href="#contato" class="hidden rounded-full border border-ember/40 bg-ember px-5 py-2.5 text-sm font-bold text-obsidian shadow-ember transition hover:-translate-y-0.5 hover:bg-ritual md:inline-flex">
+        Criar meu site
+      </a>
+
+      <button id="menuBtn" class="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/5 md:hidden" aria-label="Abrir menu">
+        <span class="flex flex-col gap-1.5">
+          <span class="block h-px w-5 bg-ritual"></span>
+          <span class="block h-px w-5 bg-ritual"></span>
+          <span class="block h-px w-5 bg-ritual"></span>
+        </span>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-obsidian/95 px-5 py-5 md:hidden">
+      <div class="flex flex-col gap-4 text-sm text-zinc-300">
+        <a href="#projetos" class="mobile-link">Projetos</a>
+        <a href="#processo" class="mobile-link">Processo</a>
+        <a href="#servicos" class="mobile-link">Serviços</a>
+        <a href="#contato" class="mobile-link">Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="relative z-10">
+    <section class="relative min-h-screen overflow-hidden px-5 pt-32 lg:px-8">
+      <div class="orb left-[-100px] top-28 h-72 w-72 bg-arcane/30"></div>
+      <div class="orb right-[-140px] top-52 h-96 w-96 bg-ember/20"></div>
+
+      <div class="mx-auto grid max-w-7xl items-center gap-14 py-16 lg:grid-cols-[1.05fr_.95fr] lg:py-24">
+        <div class="reveal">
+          <div class="mb-7 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[.04] px-4 py-2 text-xs uppercase tracking-[.24em] text-zinc-300">
+            <span class="spark"></span>
+            Design • código • narrativa
+          </div>
+
+          <p class="thin-label mb-5 text-arcane">Walpurgis Studio</p>
+
+          <h1 class="font-display text-5xl font-semibold leading-[.98] tracking-tight text-ritual md:text-7xl lg:text-8xl">
+            Sites com<br>
+            <span class="bg-gradient-to-r from-ritual via-amber-100 to-ember bg-clip-text text-transparent">presença,</span><br>
+            atmosfera<br>
+            e intenção.
+          </h1>
+
+          <p class="mt-8 max-w-2xl text-base leading-8 text-zinc-300 md:text-lg">
+            Criação de landing pages, sites institucionais, portfólios e experiências digitais para marcas, profissionais e projetos que querem sair do comum.
+          </p>
+
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a href="#projetos" class="group inline-flex items-center justify-center gap-3 rounded-full bg-ember px-7 py-4 text-sm font-extrabold text-obsidian shadow-ember transition hover:-translate-y-1 hover:bg-ritual">
+              Ver projetos
+              <span class="transition group-hover:translate-x-1">→</span>
+            </a>
+            <a href="#contato" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[.04] px-7 py-4 text-sm font-bold text-ritual transition hover:-translate-y-1 hover:border-arcane/60 hover:bg-arcane/10">
+              Quero uma página assim
+            </a>
+          </div>
+
+          <div class="mt-12 grid max-w-xl grid-cols-3 gap-3">
+            <div class="rounded-2xl border border-white/10 bg-white/[.035] p-4">
+              <strong class="block font-display text-2xl text-ritual">06</strong>
+              <span class="text-xs uppercase tracking-[.18em] text-zinc-400">projetos</span>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/[.035] p-4">
+              <strong class="block font-display text-2xl text-ritual">100%</strong>
+              <span class="text-xs uppercase tracking-[.18em] text-zinc-400">responsivo</span>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/[.035] p-4">
+              <strong class="block font-display text-2xl text-ritual">WS</strong>
+              <span class="text-xs uppercase tracking-[.18em] text-zinc-400">autoral</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative reveal">
+          <div class="absolute inset-0 rounded-full bg-aura blur-3xl"></div>
+
+          <div class="relative mx-auto max-w-[560px]">
+            <div class="absolute -left-7 top-16 hidden w-48 rounded-3xl border border-white/10 bg-graphite/80 p-4 shadow-glow backdrop-blur-xl md:block floating">
+              <p class="thin-label text-arcane">Projeto</p>
+              <p class="mt-3 font-display text-2xl leading-tight">Owl Fight<br>Center</p>
+              <p class="mt-3 text-xs leading-5 text-zinc-400">Academia de Muay Thai com visual forte, moderno e limpo.</p>
+            </div>
+
+            <div class="absolute -right-5 bottom-20 hidden w-52 rounded-3xl border border-white/10 bg-graphite/80 p-4 shadow-ember backdrop-blur-xl md:block floating-delay">
+              <p class="thin-label text-ember">Presença</p>
+              <p class="mt-3 font-display text-2xl leading-tight">Barba Negra<br>Geek</p>
+              <p class="mt-3 text-xs leading-5 text-zinc-400">Vestuário geek, otaku e gamer com estética urbana.</p>
+            </div>
+
+            <div class="relative aspect-square rounded-full border border-ritual/15 bg-gradient-to-br from-white/[.07] to-white/[.01] p-8 shadow-glow">
+              <div class="absolute inset-8 rounded-full border border-dashed border-ember/25"></div>
+              <div class="absolute inset-20 rounded-full border border-arcane/25"></div>
+
+              <div class="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-ritual/20 to-transparent"></div>
+              <div class="absolute top-1/2 left-0 h-px w-full -translate-y-1/2 bg-gradient-to-r from-transparent via-ritual/20 to-transparent"></div>
+
+              <div class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center">
+                <div class="logo-seal h-52 w-52 md:h-64 md:w-64">
+                  <span class="flame-dot top-16"></span>
+                  <span class="w-mark text-[7rem] md:text-[9rem]">W</span>
+                </div>
+                <p class="mt-8 text-center font-display text-3xl tracking-[.22em] md:text-4xl">WALPURGIS</p>
+                <p class="mt-2 text-center text-xs uppercase tracking-[.72em] text-arcane">Studio</p>
+              </div>
+
+              <span class="absolute left-8 top-1/2 spark"></span>
+              <span class="absolute right-8 top-1/3 spark"></span>
+              <span class="absolute bottom-12 left-1/2 spark"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mx-auto max-w-7xl border-y border-white/10 py-4">
+        <div class="overflow-hidden">
+          <div class="marquee-track flex w-max gap-10 whitespace-nowrap text-sm uppercase tracking-[.28em] text-zinc-400">
+            <span>Landing pages</span><span class="text-arcane">✦</span>
+            <span>Sites institucionais</span><span class="text-ember">✦</span>
+            <span>Portfólios criativos</span><span class="text-arcane">✦</span>
+            <span>Experiências interativas</span><span class="text-ember">✦</span>
+            <span>Design aplicado à web</span><span class="text-arcane">✦</span>
+            <span>Landing pages</span><span class="text-arcane">✦</span>
+            <span>Sites institucionais</span><span class="text-ember">✦</span>
+            <span>Portfólios criativos</span><span class="text-arcane">✦</span>
+            <span>Experiências interativas</span><span class="text-ember">✦</span>
+            <span>Design aplicado à web</span><span class="text-arcane">✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-5 py-24 lg:px-8">
+      <div class="mx-auto max-w-5xl text-center reveal">
+        <p class="thin-label text-arcane">Manifesto</p>
+        <h2 class="mystic-line mt-5 inline-block font-display text-4xl font-semibold leading-tight text-ritual md:text-6xl">
+          Seu projeto não precisa parecer igual ao de todo mundo.
+        </h2>
+        <p class="mx-auto mt-7 max-w-3xl text-base leading-8 text-zinc-300 md:text-lg">
+          Um site não é só uma página no ar. É a primeira impressão, o clima, a promessa e o convite. Na Walpurgis Studio, cada projeto nasce com uma intenção: transformar uma ideia em presença digital memorável.
+        </p>
+      </div>
+    </section>
+
+    <section id="projetos" class="relative px-5 py-24 lg:px-8">
+      <div class="orb left-1/2 top-20 h-80 w-80 -translate-x-1/2 bg-arcane/20"></div>
+
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between reveal">
+          <div>
+            <p class="thin-label text-arcane">Portfólio em destaque</p>
+            <h2 class="mt-5 font-display text-4xl font-semibold text-ritual md:text-6xl">
+              Projetos que já ganharam presença.
+            </h2>
+          </div>
+          <p class="max-w-xl text-sm leading-7 text-zinc-400 md:text-base">
+            Páginas criadas para pessoas, marcas e ideias diferentes — cada uma com uma atmosfera própria.
+          </p>
+        </div>
+
+        <div id="projectsGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <section id="processo" class="px-5 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-start">
+          <div class="reveal">
+            <p class="thin-label text-ember">Processo</p>
+            <h2 class="mt-5 font-display text-4xl font-semibold leading-tight md:text-6xl">
+              Da ideia crua ao site publicado.
+            </h2>
+            <p class="mt-6 text-base leading-8 text-zinc-300">
+              Sem burocracia de agência gigante. O foco é entender a ideia, criar uma direção visual forte, construir com cuidado e entregar algo que faça sentido para o projeto.
+            </p>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <article class="brand-card reveal rounded-3xl p-7 transition">
+              <span class="text-sm font-bold text-arcane">01</span>
+              <h3 class="mt-5 font-display text-2xl">Imersão</h3>
+              <p class="mt-4 text-sm leading-7 text-zinc-400">Entendimento da marca, público, referências, objetivo e tom visual do projeto.</p>
+            </article>
+
+            <article class="brand-card reveal rounded-3xl p-7 transition">
+              <span class="text-sm font-bold text-arcane">02</span>
+              <h3 class="mt-5 font-display text-2xl">Direção visual</h3>
+              <p class="mt-4 text-sm leading-7 text-zinc-400">Definição de estética, cores, tipografia, seções, ritmo e atmosfera.</p>
+            </article>
+
+            <article class="brand-card reveal rounded-3xl p-7 transition">
+              <span class="text-sm font-bold text-ember">03</span>
+              <h3 class="mt-5 font-display text-2xl">Desenvolvimento</h3>
+              <p class="mt-4 text-sm leading-7 text-zinc-400">Construção responsiva com HTML, CSS, JS, Tailwind ou a stack ideal para o caso.</p>
+            </article>
+
+            <article class="brand-card reveal rounded-3xl p-7 transition">
+              <span class="text-sm font-bold text-ember">04</span>
+              <h3 class="mt-5 font-display text-2xl">Publicação</h3>
+              <p class="mt-4 text-sm leading-7 text-zinc-400">Ajustes finais, testes, hospedagem, domínio e entrega pronta para divulgação.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="px-5 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal text-center">
+          <p class="thin-label text-arcane">Serviços</p>
+          <h2 class="mx-auto mt-5 max-w-4xl font-display text-4xl font-semibold leading-tight md:text-6xl">
+            Design, código e atmosfera no mesmo lugar.
+          </h2>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <article class="brand-card reveal rounded-3xl p-7 transition">
+            <div class="mb-7 grid h-12 w-12 place-items-center rounded-2xl bg-arcane/15 text-arcane">✦</div>
+            <h3 class="font-display text-2xl">Sites institucionais</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-400">Para academias, marcas locais, profissionais autônomos e negócios que precisam transmitir confiança.</p>
+          </article>
+
+          <article class="brand-card reveal rounded-3xl p-7 transition">
+            <div class="mb-7 grid h-12 w-12 place-items-center rounded-2xl bg-ember/15 text-ember">↗</div>
+            <h3 class="font-display text-2xl">Landing pages</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-400">Páginas focadas em apresentação, campanha, contato, venda, divulgação ou lançamento.</p>
+          </article>
+
+          <article class="brand-card reveal rounded-3xl p-7 transition">
+            <div class="mb-7 grid h-12 w-12 place-items-center rounded-2xl bg-arcane/15 text-arcane">◈</div>
+            <h3 class="font-display text-2xl">Portfólios criativos</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-400">Experiências para devs, artistas, designers, psicólogas, professores e criadores.</p>
+          </article>
+
+          <article class="brand-card reveal rounded-3xl p-7 transition">
+            <div class="mb-7 grid h-12 w-12 place-items-center rounded-2xl bg-ember/15 text-ember">⌁</div>
+            <h3 class="font-display text-2xl">Páginas especiais</h3>
+            <p class="mt-4 text-sm leading-7 text-zinc-400">Sites interativos, afetivos, comemorativos, experimentais ou com proposta fora do comum.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-5 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-graphite/90 via-obsidian to-obsidian p-7 shadow-glow md:p-12 reveal">
+        <div class="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+          <div>
+            <p class="thin-label text-ember">Por que Walpurgis?</p>
+            <h2 class="mt-5 font-display text-4xl font-semibold leading-tight md:text-6xl">
+              Menos template genérico. Mais identidade.
+            </h2>
+            <p class="mt-6 text-base leading-8 text-zinc-300">
+              A proposta é criar páginas com estética própria, leitura clara e sensação de marca. Mesmo quando o projeto é simples, ele não precisa parecer simples.
+            </p>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-3xl border border-white/10 bg-white/[.035] p-6">
+              <p class="font-display text-2xl">Visual forte</p>
+              <p class="mt-3 text-sm leading-7 text-zinc-400">Cada página nasce com uma atmosfera pensada para o público certo.</p>
+            </div>
+            <div class="rounded-3xl border border-white/10 bg-white/[.035] p-6">
+              <p class="font-display text-2xl">Clareza comercial</p>
+              <p class="mt-3 text-sm leading-7 text-zinc-400">Bonito, mas com objetivo: apresentar, gerar desejo e facilitar contato.</p>
+            </div>
+            <div class="rounded-3xl border border-white/10 bg-white/[.035] p-6">
+              <p class="font-display text-2xl">Responsivo real</p>
+              <p class="mt-3 text-sm leading-7 text-zinc-400">Pensado para desktop e celular, com cuidado em layout e navegação.</p>
+            </div>
+            <div class="rounded-3xl border border-white/10 bg-white/[.035] p-6">
+              <p class="font-display text-2xl">Código flexível</p>
+              <p class="mt-3 text-sm leading-7 text-zinc-400">Estrutura leve, fácil de adaptar e pronta para evoluir.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="relative px-5 py-28 lg:px-8">
+      <div class="orb bottom-10 left-1/2 h-96 w-96 -translate-x-1/2 bg-ember/15"></div>
+
+      <div class="mx-auto max-w-4xl text-center reveal">
+        <div class="mx-auto mb-9 flex justify-center">
+          <div class="logo-seal">
+            <span class="flame-dot"></span>
+            <span class="w-mark">W</span>
+          </div>
+        </div>
+
+        <p class="thin-label text-arcane">Contato</p>
+        <h2 class="mt-5 font-display text-4xl font-semibold leading-tight md:text-6xl">
+          Tem uma ideia? Vamos transformar em presença digital.
+        </h2>
+        <p class="mx-auto mt-7 max-w-2xl text-base leading-8 text-zinc-300 md:text-lg">
+          Me conta o tipo de projeto, o objetivo da página e as referências que você gosta. A partir disso, a Walpurgis Studio cria uma direção visual e uma experiência que combine com sua ideia.
+        </p>
+
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a id="whatsappLink" href="#" target="_blank" rel="noopener" class="group inline-flex items-center justify-center gap-3 rounded-full bg-ember px-8 py-4 text-sm font-extrabold text-obsidian shadow-ember transition hover:-translate-y-1 hover:bg-ritual">
+            Chamar no WhatsApp
+            <span class="transition group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative z-10 border-t border-white/10 px-5 py-10 lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 text-sm text-zinc-500 md:flex-row md:items-center md:justify-between">
+      <p>
+        <span class="font-display tracking-[.22em] text-ritual">WALPURGIS</span>
+        <span class="ml-2 text-arcane">STUDIO</span>
+      </p>
+      <p>Sites com presença, atmosfera e intenção.</p>
+      <p>Design • Código • Narrativa</p>
+    </div>
+  </footer>
+
+  <script>
+    const projects = [
+      {
+        name: "Karen Vidal",
+        type: "Marca pessoal",
+        description: "Página elegante para presença profissional, apresentação pessoal e contato direto.",
+        url: "https://sirwez.github.io/karenvidal_personal/",
+        accent: "Profissional",
+        symbol: "KV"
+      },
+      {
+        name: "Circuito de Treinamento",
+        type: "Academia / Fitness",
+        description: "Landing page energética para divulgar modalidades, estrutura e chamada para treino.",
+        url: "https://sirwez.github.io/circuitodetreinamento/",
+        accent: "Movimento",
+        symbol: "CT"
+      },
+      {
+        name: "Owl Fight Center",
+        type: "Muay Thai",
+        description: "Site forte, limpo e moderno para academia especializada em Muay Thai.",
+        url: "https://sirwez.github.io/owlfightcenter/",
+        accent: "Força",
+        symbol: "OF"
+      },
+      {
+        name: "Kael",
+        type: "Portfólio criativo",
+        description: "Experiência digital para destacar projetos, trajetória, publicações e identidade autoral.",
+        url: "https://sirwez.github.io/kael",
+        accent: "Autoral",
+        symbol: "K"
+      },
+      {
+        name: "Barba Negra",
+        type: "Geek / Otaku / Gamer",
+        description: "Página com estética urbana e pop para loja de vestuário geek e camisetas personalizadas.",
+        url: "https://sirwez.github.io/barbanegra/",
+        accent: "Cultura pop",
+        symbol: "BN"
+      },
+      {
+        name: "Biblioteca",
+        type: "Projeto pessoal",
+        description: "Sistema visual e afetivo para biblioteca digital de uso pessoal, com login e organização.",
+        url: "https://sirwez.github.io/thaci-biblioteca/",
+        accent: "Interativo",
+        symbol: "B"
+      }
+    ];
+
+    const grid = document.getElementById("projectsGrid");
+
+    projects.forEach((project, index) => {
+      const card = document.createElement("article");
+      card.className = "brand-card reveal group overflow-hidden rounded-[2rem] transition duration-500";
+
+      card.innerHTML = `
+        <div class="project-image relative h-56 overflow-hidden border-b border-white/10">
+          <div class="absolute inset-0 opacity-60" style="background-image: linear-gradient(rgba(244,241,234,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(244,241,234,.04) 1px, transparent 1px); background-size: 34px 34px;"></div>
+          <div class="absolute left-6 top-6 rounded-full border border-white/10 bg-obsidian/70 px-4 py-2 text-xs uppercase tracking-[.22em] text-zinc-300 backdrop-blur">
+            ${String(index + 1).padStart(2, "0")} • ${project.accent}
+          </div>
+
+          <div class="absolute left-1/2 top-1/2 grid h-28 w-28 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-ritual/20 bg-obsidian/65 shadow-glow backdrop-blur">
+            <div class="absolute inset-3 rounded-full border border-dashed border-ember/25"></div>
+            <span class="font-display text-4xl text-ritual">${project.symbol}</span>
+          </div>
+
+          <div class="absolute bottom-6 right-6 h-3 w-3 rotate-45 bg-ember shadow-ember"></div>
+        </div>
+
+        <div class="p-7">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-[.22em] text-arcane">${project.type}</p>
+              <h3 class="mt-3 font-display text-3xl font-semibold text-ritual">${project.name}</h3>
+            </div>
+            <a href="${project.url}" target="_blank" rel="noopener" class="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[.04] text-ritual transition group-hover:border-ember/50 group-hover:bg-ember group-hover:text-obsidian" aria-label="Abrir ${project.name}">
+              ↗
+            </a>
+          </div>
+
+          <p class="mt-5 text-sm leading-7 text-zinc-400">${project.description}</p>
+
+          <div class="mt-7 flex items-center justify-between border-t border-white/10 pt-5">
+            <span class="text-xs uppercase tracking-[.24em] text-zinc-500">Ver online</span>
+            <a href="${project.url}" target="_blank" rel="noopener" class="text-sm font-bold text-ember transition hover:text-ritual">
+              Abrir projeto
+            </a>
+          </div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    const message = "Oi! Quero criar uma landing page/site com a Walpurgis Studio. Tenho uma ideia e queria transformar em uma presença digital bonita, funcional e com personalidade.";
+
+    const whatsappNumber = "86988133847";
+    const whatsappLink = document.getElementById("whatsappLink");
+
+    if (whatsappNumber) {
+      whatsappLink.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    } else {
+      whatsappLink.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    }
+
+    const copyBtn = document.getElementById("copyMessage");
+    const feedback = document.getElementById("copyFeedback");
+
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
