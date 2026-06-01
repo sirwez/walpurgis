@@ -1,21 +1,12 @@
-Walpurgis Studio — versão corrigida.
+Walpurgis Studio — versão Project Explorer.
 
-Correções:
-- removida a seção de identidade/paleta que aparecia no site
-- logo do hero reduzida e reposicionada para não cobrir a composição
-- cards dos projetos limpos, sem marca d'água da logo por trás dos nomes
-- mobile ajustado com melhor ordem, espaçamento e leitura
+Alteração principal:
+- Hero direita transformado em explorador de projetos no estilo Solar Explorer.
+- Cada projeto funciona como um planeta selecionável.
+- Menu lateral/horizontal permite navegar entre os projetos.
+- Planeta principal muda cor, textura visual, nome, categoria e descrição.
+- Botões anterior/próximo e link para abrir cada projeto.
+- Portfólio mantém os 10 projetos.
 
-Arquivos:
-- index.html
-- assets/walpurgis-logo.png
-- assets/walpurgis-symbol.png
-- assets/favicon-16.png
-- assets/favicon-32.png
-- assets/favicon-48.png
-- assets/apple-touch-icon.png
-- assets/icon-512.png
-
-Para subir no GitHub Pages:
-1. Envie o index.html para a raiz.
-2. Envie a pasta assets junto.
+Publicação:
+Suba o index.html e a pasta assets no GitHub Pages.
